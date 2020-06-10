@@ -10,7 +10,11 @@ module.exports = function(context) {
 	const etree = et.parse(data)
 	const packageName = etree.getroot().attrib.id
 	const packagePath = packageName.replace(/\./g, "/")
-	const target = path.join('platforms/android/src/', packagePath, 'MainActivity.java')
+  let target = path.join('platforms/android/src/', packagePath, 'MainActivity.java')
+  var exists = path.resolve(process.cwd(), target);
+  if(!fs.existsSync(exists)){
+     target = path.join('platforms/android/app/src/main/java', packagePath, 'MainActivity.java')
+  }
 	console.log('CordovaPluginMemoryWarning -> attempting to modify ' + target)
 
 	// read the current MainActivity.java
