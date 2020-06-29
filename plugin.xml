@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-memory-warning" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-memory-warning" version="1.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<name>CordovaPluginMemoryWarning</name>
 	<description>Cordova Memory Warning Plugin</description>
 	<license>MIT</license>
 	<keywords>cordova,memory,warning</keywords>
-	<repo>https://github.com/88dots/cordova-plugin-memory-warning.git</repo>
-	<issue>https://github.com/88dots/cordova-plugin-memory-warning/issues</issue>
+	<repo>https://github.com/RahulCV/cordova-plugin-memory-warning.git</repo>
+	<issue>https://github.com/RahulCV/cordova-plugin-memory-warning/issues</issue>
 
 	<js-module name="CordovaPluginMemoryWarning" src="www/CordovaPluginMemoryWarning.js">
 		<clobbers target="cordova.plugins.CordovaPluginMemoryWarning" />

@@ -1,6 +1,34 @@
-# cordova-plugin-memory-warning
+# cordova-plugin-memory-warning-ios-android
 
 Cordova plugin to dispatch memory warnings to javascript.
+
+## Installation
+#### Automatically (CLI / Plugman)
+cordova-plugin-memory-warning-ios-android  is compatible with Cordova Plugman, compatible with PhoneGap 3.0 CLI, here's how it works with the CLI:
+
+
+
+```bash
+phonegap local plugin add https://github.com/RahulCV/cordova-plugin-memory-warning
+```
+#### or with Cordova CLI, from npm:
+
+```bash
+ cordova plugin add cordova-plugin-memory-warning-ios-android
+ cordova prepare
+
+```
+
+#### or with Ionic  CLI, from npm:
+
+```bash
+ ionic cordova plugin add cordova-plugin-memory-warning-ios-android
+ ionic cordova prepare
+```
+
+
+
+
 
 ## Usage iOS
 
@@ -37,4 +65,13 @@ cordova.plugins.CordovaPluginMemoryWarning.isMemoryUsageUnsafe(function (result)
 }, function (error) {
     // handle errors
 });
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
 ```
