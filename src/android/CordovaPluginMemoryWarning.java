@@ -50,11 +50,35 @@ public class CordovaPluginMemoryWarning extends CordovaPlugin {
 
                         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, memoryInfo.lowMemory));
                     } catch (Exception e) {
-                        LOG.e(TAG, "Error occured while checking memory usage", e);
+                        LOG.e(TAG, "Error occurred while checking memory usage", e);
                         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION, "Could not check memory usage"));
                     }
                 }
             });
+        }
+        else if (action.equals("getMemoryInfo")) {
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        MemoryInfo memoryInfo = new MemoryInfo();
+                        activityManager.getMemoryInfo(memoryInfo);
+
+                        JSONObject result = new JSONObject();
+                        result.put("lowMemory", memoryInfo.lowMemory);
+                        result.put("availMem", memoryInfo.availMem);
+                        result.put("totalMem", memoryInfo.totalMem);
+                        result.put("threshold", memoryInfo.threshold);
+
+                        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, result));
+                    } catch (Exception e) {
+                        LOG.e(TAG, "Error occurred while get memory info", e);
+                        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.JSON_EXCEPTION, "Could get memory info"));
+                    }
+                }
+            });
+        } else {
+            return false;
         }
 
         return true;
